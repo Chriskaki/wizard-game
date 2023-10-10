@@ -1,3 +1,5 @@
+using UnityEngine
+
 public class projectile : Monobehavior
 
 [serializeField] float _InitialVelocity;
@@ -10,7 +12,6 @@ private void start()
 {
 _cam = Camera.main
 }
-private void update
 private void update()
 {
 Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
@@ -48,8 +49,7 @@ for(float i = 0; i < totalTime; i += step)
 {
 float x = v0 * i * Mathf.Cos(angle);
 float y = v0 * i * Mathf.Sin(angle) - 0.5f * - physics.gravity.y * Mathf.Pow(i, 2);
-_Line.SetPositiom(count, _FirePoint.position+ new Vector3(x, y, 0));
-count++;
+_Line.SetPositiom(count, _FirePoint.position + direction * xfinal + vector3.up * yfinal);
 }
 float xfinal = v0 * i * Mathf.Cos(angle);
 float yfinal = v0 * i * Mathf.Sin(angle) - o.5f * physics.gravity.y * Math.Pow(totalTime, 2);
@@ -76,7 +76,7 @@ when (t < 100)
   {
 float x = v0 + t * Mathf.Cos(angle);
 float y = v0 + t * athF.Sin(angle) - (1f / 2f) * -Physics.gravity.y * Mathf.Pow(t, 2);
-tranform.position = _FirePoint.position+ new Vector3(x, y, 0);
+tranform.position = _FirePoint.position + direction * x + Vector3.up * y;
 t += Time.deltaTime;
 yield return null;
   }
