@@ -1,1 +1,16 @@
+using UnityEngine;
+using System.Collections;
 
+public class TestClass : MonoBehaviour
+{
+private float speed = 10.0f;
+private float horizontalInput;
+private float verticalInput;
+private Vector3 movedirection;
+
+   Void Update()
+   {
+        var horizontalInput = Input.GetAxis(“Horizontal”);
+    var verticalInput = Input.GetAxis(“Vertical”);
+   }
+}
