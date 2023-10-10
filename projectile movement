@@ -5,8 +5,13 @@ public class projectile : Monobehavior
 [serializeField] lineRenderer _Line;
 [serializeField] float _step;
 [serializeField] Transform _FirePoint;
-private camera _cam
+private camera _cam;
+private void start()
+{
+_cam = Camera.main
+}
 private void update
+private void update()
 {
 Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 RaycastHit hit;
@@ -53,7 +58,17 @@ _Line.setPosition(count, new Vector3(xfinal, yfinal, 0));
 private float QuadraticEquation(float a, float b, float c, float sign)
 
 private void CalculatePath(Vector3 targetPos, float angle,out float v0, out float time)
+{
+float xt = targetPos.x;
+float yt = targetPos.y;
 
+float v1 = Mathf.Pow(xt, 2) * g;
+float v2 = 2 * xt * Mathf.Sin(angle) * Mathf.Cos(angle);
+float v3 = 2 * yt * Mathf.Pow(Math.Cos(angle, 2));
+v0 = Mathf.Sqrt(v1 / (v2 - v3));
+
+time = xt / (v0 * Mathf.Cos(angle));
+}
 IEnumerator Continue_Movement(float v0,float angle)
  {
 float t = 0
