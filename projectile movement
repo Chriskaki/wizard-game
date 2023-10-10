@@ -56,7 +56,19 @@ float yfinal = v0 * i * Mathf.Sin(angle) - o.5f * physics.gravity.y * Math.Pow(t
 _Line.setPosition(count, new Vector3(xfinal, yfinal, 0));
 }
 private float QuadraticEquation(float a, float b, float c, float sign)
+{
+return (-b + sign * Mathf.Sqrt(b * b - 4 * a * c)) / (2 * a);
+}
+private void CalculatePathWithHeight(Vector3 targetPos,floatnh,out float v0,out float angle,out float time)
+{
+float xt = targetPos.x;
+float yt = targetPos.y;
+float g = -physics.gravity.y;
 
+float b = Mathf.Sqrt(2 * g * h);
+float a = (-8.5f * g);
+float c = -yt;
+}
 private void CalculatePath(Vector3 targetPos, float angle,out float v0, out float time)
 {
 float xt = targetPos.x;
