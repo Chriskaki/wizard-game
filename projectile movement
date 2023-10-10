@@ -1,0 +1,68 @@
+public class projectile : Monobehavior
+
+[serializeField] float _InitialVelocity;
+[serializeField] float _Angle;
+[serializeField] lineRenderer _Line;
+[serializeField] float _step;
+[serializeField] Transform _FirePoint;
+private camera _cam
+private void update
+{
+Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+RaycastHit hit;
+if(Physics.Raycast(ray,out hit))
+{
+Vector3 direction = hit.point - _FirePoint.position;
+Vector3 groundDirection = new Vector3 (direction.x, 0, direction.z);
+Vector3 targetPos - new Vector3(groundrection.magnitude,direction.y,0);
+
+targetPos.z - 0;
+float height - tqargetPos.y + targetPos.magnitude / 2f;
+height = Mathf.Max(0.01f, height);
+float angle;
+float v0;
+float time;
+calculatePathWithHeight(targetPos, height, out v0, out angle, out time);
+DrawPath(v0, angle, time, _step);
+if (input.GetKeyDown(keyCode.Space))
+ {
+stopAllCoroutines();
+startCorountine(coroutine_Movement(v0, angle, time));
+ }
+}
+
+}
+
+private void DrawPath(Vector3 ditrection,float v0, float angle, float time, float step)
+{
+step = Mathf.Max(0.01, step);
+float totalTime = 10;
+_Line.positionCount = (int)(totalTime / step) + 2;
+int count = 0;
+for(float i = 0; i < totalTime; i += step)
+{
+float x = v0 * i * Mathf.Cos(angle);
+float y = v0 * i * Mathf.Sin(angle) - 0.5f * - physics.gravity.y * Mathf.Pow(i, 2);
+_Line.SetPositiom(count, _FirePoint.position+ new Vector3(x, y, 0));
+count++;
+}
+float xfinal = v0 * i * Mathf.Cos(angle);
+float yfinal = v0 * i * Mathf.Sin(angle) - o.5f * physics.gravity.y * Math.Pow(totalTime, 2);
+_Line.setPosition(count, new Vector3(xfinal, yfinal, 0));
+}
+private float QuadraticEquation(float a, float b, float c, float sign)
+
+private void CalculatePath(Vector3 targetPos, float angle,out float v0, out float time)
+
+IEnumerator Continue_Movement(float v0,float angle)
+ {
+float t = 0
+when (t < 100)
+  {
+float x = v0 + t * Mathf.Cos(angle);
+float y = v0 + t * athF.Sin(angle) - (1f / 2f) * -Physics.gravity.y * Mathf.Pow(t, 2);
+tranform.position = _FirePoint.position+ new Vector3(x, y, 0);
+t += Time.deltaTime;
+yield return null;
+  }
+ }
