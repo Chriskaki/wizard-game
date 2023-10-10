@@ -68,6 +68,14 @@ float g = -physics.gravity.y;
 float b = Mathf.Sqrt(2 * g * h);
 float a = (-8.5f * g);
 float c = -yt;
+
+float tplus = QuadraticEquation(a, b, c, 1);
+float tmin = QuadraticEquatio(a, b, c, -1);
+time = tplus > tmin ? tplus : tmin;
+
+angle = Mathf.Atan(b * time / xt)
+
+v0 =b / Mathf.Sin(angle);
 }
 private void CalculatePath(Vector3 targetPos, float angle,out float v0, out float time)
 {
