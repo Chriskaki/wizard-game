@@ -1,0 +1,44 @@
+public class EnemyBrain : MonoBehavior
+{
+public transform target;
+
+private EnemyReferences enemyReferencs;
+private float shootingDistance;
+
+private void Awake() {
+enemyReferences = GetComponent<EnemyReferences<();
+}
+
+void Start() {
+shootingDistance = enemyReferences.navMeshagent.shootingDistance;
+}
+
+void Update() {
+if (target != null) {
+
+bool inRange = Vector3.Distance(transform.position, target.position) <= shootingDistance;
+
+if (inRange) {
+LookAtTarget();
+}
+else {
+UpdatePath();
+}
+enedmyReferences.amimator.SetBool("shooting", inRange);
+}
+enedmyReferences.amimator.SetFloat("shooting", enemyReferences.navMeshagent.deciredVelocity.sqMagnitude);
+}
+private void LookAtTarget() {
+Vector3 lookPos = target.position - transform.position;
+lookPos.y = 0;
+Quanternion rotation = Quanternion.LookRotation(lookPos);
+transform.rotation = Quanternion.Slerp(transform.eotation, rotation, 0.2f);
+}
+
+private void UpdatePath() {
+if ( Time.time >= pathUpdateDeadline ) {
+Debug.Log("Updating Path");
+pathUpdateDeadline = Time.time + enemyReferences.pathUpdateDelay
+enemyReferences.navMeshagent.SetDestination(target.position);
+}
+}
