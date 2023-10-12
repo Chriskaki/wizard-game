@@ -30,11 +30,3 @@ vector3 v = new Vector3(0.0f, 0.0f, vec_forward.z) * Time.deltaTime * 15.0f;
 transform_cylander.translate(v, space.self);
 }
 
-private void Rotate()
-{
-vector3 vec_rotate = Vector3.zero
-vec_rotate.y = Input.GetAxis("Rotate");
-vector3 v = new Vector3(0.0f, vec_rotate.y,0.0f) * Time.deltaTime * 15.0f;
-transform_cylander.Rotate(v, space.self);
-}
-
