@@ -10,7 +10,7 @@ private Vector3 movedirection;
 
    Void Update()
    {
-        var horizontalInput = Input.GetAxis(“Horizontal”);
-    var verticalInput = Input.GetAxis(“Vertical”);
+         horizontalInput = Input.GetAxis(“Horizontal”);
+         verticalInput = Input.GetAxis(“Vertical”);
    }
 }
