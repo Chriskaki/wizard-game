@@ -7,26 +7,26 @@ private void Awake()
 startPos_cylander = transform_cylander.position;
 }
 
-void update()
+void Update()
 {
-MoveLeftRight()
-MoveForwardBack()
-Rotate()
+MoveLeftRight();
+MoveForwardBack();
+Rotate();
 }
 
 private void MoveLeftRight()
 {
-vector3 vec_left = Vector3.zero
+Vector3 vec_left = Vector3.zero;
 vec_left.x = Input.GetAxis("Horizontal");
-vector3 v = new Vector3(vec_left.x, 0.0f, 0.0f) * Time.deltaTime * 15.0f;
+Vector3 v = new Vector3(vec_left.x, 0.0f, 0.0f) * Time.deltaTime * 15.0f;
 transform_cylander.translate(v, space.self);
 }
 
 private void MoveForwardBack()
 {
-vector3 vec_forward = Vector3.zero
+Vector3 vec_forward = Vector3.zero;
 vec_forward.z = Input.GetAxis("Vertical");
-vector3 v = new Vector3(0.0f, 0.0f, vec_forward.z) * Time.deltaTime * 15.0f;
+Vector3 v = new Vector3(0.0f, 0.0f, vec_forward.z) * Time.deltaTime * 15.0f;
 transform_cylander.translate(v, space.self);
 }
 
