@@ -1,4 +1,4 @@
-public class MomoBehaviour: Movement 
+public class movement : MomoBehaviour 
 
 vector3 startPos_cylander;
 public Transform transform_cylander;
