@@ -1,4 +1,4 @@
-public class movement : MomoBehaviour 
+public class movement : MomoBehaviour {
 
 vector3 startPos_cylander;
 public Transform transform_cylander;
@@ -31,3 +31,4 @@ private void MoveForwardBack()
  transform_cylander.translate(v, space.self);
  }
 
+}
